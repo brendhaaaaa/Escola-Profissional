@@ -1,0 +1,83 @@
+<<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Escola Profissional</title>
+    <link rel="stylesheet" href="escola.css"/>
+</head>
+<body>
+    <h1>Escola Profissional</h1>
+
+    <!-- Cadastro de Curso -->
+    <section>
+        <h2>Cadastrar curso</h2>
+        <form id="cursoForm">
+            <input type="text" placeholder="Nome do Curso" id="cursoNome" required/>
+            <input type="number" placeholder="Carga Horária" id="cursoCarga" required/>
+            <input type="text" placeholder="Valor(R$)" id="cursoValor" required/>
+            <button type="submit">Cadastrar Curso</button>
+        </form>
+    </section>
+
+    <!-- Seleção de Curso -->
+    <section>
+        <h2>Seleção de Curso</h2>
+        <form id="selecaoCursoForm">
+            <label for="cursoSelectDetalhe">Escolha um curso:</label>
+            <select id="cursoSelectDetalhe" required>
+                <option value="">Selecione um curso</option>
+            </select>
+        </form>
+        <div id="detalhesCurso" style="display:none;"></div>
+    </section>
+
+    <!-- Cadastro de Cliente -->
+    <section>
+        <h2>Cadastro Cliente</h2>
+        <form id="clienteForm">
+            <input type="text" placeholder="Nome do Cliente" id="clienteNome" required/>
+            <input type="text" placeholder="CPF" id="clienteCPF" maxlength="14" required/>
+            <select id="cursoCliente" required>
+                <option value="">Selecione um curso</option>
+            </select>
+            <button type="submit">Cadastrar Cliente</button>
+        </form>
+    </section>
+
+    <!-- Registrar Venda -->
+    <section>
+        <h2>Vender Curso</h2>
+        <form id="vendaForm">
+            <label for="clienteSelect">Selecione um Cliente:</label>
+            <select id="clienteSelect" required>
+                <option value="">Selecione um cliente</option>
+            </select>
+
+            <label for="cursoInputVenda">Curso:</label>
+            <input type="text" id="cursoInputVenda" readonly/>
+
+            <button type="submit">Registrar Venda</button>
+        </form>
+
+        <div id="vendaDetalhes">
+            <p id="clienteVenda">Cliente: </p>
+            <p id="cursoVenda">Curso: </p>
+        </div>
+
+        <ul id="listarVendas"></ul>
+    </section>
+
+    <!-- Buscar Vendas por CPF -->
+    <section>
+        <h2>Buscar Vendas por CPF</h2>
+        <form id="buscaCPFForm">
+            <input type="text" id="cpfBusca" placeholder="Digite o CPF do cliente" maxlength="14" required/>
+            <button type="submit">Buscar</button>
+        </form>
+        <ul id="resultadoBusca"></ul>
+    </section>
+
+    <script src="escola.js"></script>
+</body>
+</html>
