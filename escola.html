@@ -1,77 +1,117 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Escola Profissional</title>
-    <link rel="stylesheet" href="escola.css"/>
-</head>
-<body>
-    <h1>Escola Profissional</h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Escola Profissional - Menu Simples</title>
+        <link rel="stylesheet" href="escola.css" />
+    </head>
 
-    <!-- Cadastro de Curso -->
-    <section>
-        <h2>Cadastrar curso</h2>
-        <form id="cursoForm">
-            <input type="text" placeholder="Nome do Curso" id="cursoNome" required/>
-            <input type="number" placeholder="Carga Horária" id="cursoCarga" required/>
-            <input type="text" placeholder="Valor(R$)" id="cursoValor" required/>
-            <button type="submit">Cadastrar Curso</button>
-        </form>
-    </section>
+    <body>
+        <header>
+            <button id="menuToggle" aria-label="Abrir menu">☰</button>
+            <h1>Escola Profissional</h1>
+        </header>
 
-    <!-- Seleção de Curso -->
-    <section>
-        <h2>Seleção de Curso</h2>
-        <form id="selecaoCursoForm">
-            <label for="cursoSelectDetalhe">Escolha um curso:</label>
-            <select id="cursoSelectDetalhe" required>
-                <option value="">Selecione um curso</option>
-            </select>
-        </form>
-        <div id="detalhesCurso" style="display:none;"></div>
-    </section>
+        <nav id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#" data-tab="cadastro-curso" class="active">Cadastro Curso</a></li>
+                <li><a href="#" data-tab="cadastro-cliente">Cadastro Cliente</a></li>
+                <li><a href="#" data-tab="info-cursos">Informações Cursos</a></li>
+                <li><a href="#" data-tab="vendas-cursos">Vendas Cursos</a></li>
+                <li><a href="#" data-tab="consulta-cpf">Consulta por CPF</a></li>
+            </ul>
+        </nav>
 
-    <!-- Cadastro de Cliente -->
-    <section>
-        <h2>Cadastro Cliente</h2>
-        <form id="clienteForm">
-            <input type="text" placeholder="Nome do Cliente" id="clienteNome" required/>
-            <input type="text" placeholder="CPF" id="clienteCPF" maxlength="14" required/>
-            <select id="cursoCliente" required>
-                <option value="">Selecione um curso</option>
-            </select>
-            <button type="submit">Cadastrar Cliente</button>
-        </form>
-    </section>
+        <main id="mainContent">
+            <section id="cadastro-curso" class="tab-content active">
+                <h2>Cadastro de Curso</h2>
+                <form id="cursoForm">
+                    <label for="cursoNome">Nome do Curso</label>
+                    <input type="text" id="cursoNome" required placeholder="Nome do Curso" />
+                    <label for="cursoCarga">Carga Horária (horas)</label>
+                    <input type="number" id="cursoCarga" required min="1" placeholder="Carga Horária" />
+                    <label for="cursoValor">Valor (R$)</label>
+                    <input
+                        type="text"
+                        id="cursoValor"
+                        required
+                        placeholder="Valor (ex: 500,00)"
+                        pattern="^\d+(\,\d{1,2})?$"
+                        title="Use vírgula para os centavos, ex: 500,00"
+                    />
+                    <button type="submit">Cadastrar Curso</button>
+                </form>
+            </section>
 
-    <!-- Registrar Venda -->
-    <section>
-        <h2>Vender Curso</h2>
-        <form id="vendaForm">
-            <label for="clienteSelect">Selecione um Cliente:</label>
-            <select id="clienteSelect" required>
-                <option value="">Selecione um cliente</option>
-            </select>
+            <section id="cadastro-cliente" class="tab-content">
+                <h2>Cadastro de Cliente</h2>
+                <form id="clienteForm">
+                    <label for="clienteNome">Nome do Cliente</label>
+                    <input type="text" id="clienteNome" required placeholder="Nome do Cliente" />
+                    <label for="clienteCPF">CPF (somente números)</label>
+                    <input type="text" id="clienteCPF" maxlength="11" pattern="\\d{11}" title="Digite 11 números" required />
+                    <label for="cursoCliente">Selecione um curso</label>
+                    <select id="cursoCliente" required>
+                        <option value="">Selecione um curso</option>
+                    </select>
+                    <label for="periodoCliente">Período do Curso</label>
+                    <select id="periodoCliente" required>
+                        <option value="">Selecione um período</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Noturno">Noturno</option>
+                    </select>
+                    <button type="submit">Cadastrar Cliente e Venda</button>
+                </form>
+            </section>
 
-            <label for="cursoInputVenda">Curso:</label>
-            <input type="text" id="cursoInputVenda" readonly/>
+            <section id="info-cursos" class="tab-content">
+                <h2>Informações dos Cursos</h2>
+                <select id="cursoSelectDetalhe" aria-label="Selecionar curso">
+                    <option value="">Selecione um curso</option>
+                </select>
+                <div id="detalhesCurso" class="detalhes-curso"></div>
+            </section>
 
-            <button type="submit">Registrar Venda</button>
-        </form>
+            <section id="vendas-cursos" class="tab-content">
+                <h2>Registrar Venda de Curso</h2>
+                <form id="vendaForm">
+                    <label for="clienteSelect">Selecione um Cliente</label>
+                    <select id="clienteSelect" required>
+                        <option value="">Selecione um cliente</option>
+                    </select>
+                    <label for="cursoInputVenda">Curso</label>
+                    <input type="text" id="cursoInputVenda" readonly />
+                    <label for="periodoVenda">Período do Curso</label>
+                    <select id="periodoVenda" required>
+                        <option value="">Selecione um período</option>
+                        <option value="Matutino">Matutino</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Noturno">Noturno</option>
+                    </select>
+                    <button type="submit">Registrar Venda</button>
+                </form>
+            </section>
 
-    </section>
+            <section id="consulta-cpf" class="tab-content">
+                <h2>Consulta de Vendas por CPF</h2>
+                <form id="buscaCPFForm" class="busca-form">
+                    <input
+                        type="text"
+                        id="cpfBusca"
+                        maxlength="11"
+                        pattern="\\d{11}"
+                        placeholder="Digite o CPF (somente números)"
+                        title="Digite 11 números"
+                        required
+                    />
+                    <button type="submit">Buscar</button>
+                </form>
+                <ul id="resultadoBusca"></ul>
+            </section>
+        </main>
 
-    <!-- Buscar Vendas por CPF -->
-    <section>
-        <h2>Buscar Vendas por CPF</h2>
-        <form id="buscaCPFForm">
-            <input type="text" id="cpfBusca" placeholder="Digite o CPF do cliente" maxlength="14" required/>
-            <button type="submit">Buscar</button>
-        </form>
-        <ul id="resultadoBusca"></ul>
-    </section>
-
-    <script src="escola.js"></script>
-</body>
+        <script src="escola.js"></script>
+    </body>
 </html>
