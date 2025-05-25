@@ -50,19 +50,8 @@
                     <label for="clienteNome">Nome do Cliente</label>
                     <input type="text" id="clienteNome" required placeholder="Nome do Cliente" />
                     <label for="clienteCPF">CPF (somente números)</label>
-                    <input type="text" id="clienteCPF" maxlength="11" pattern="\\d{11}" title="Digite 11 números" required />
-                    <label for="cursoCliente">Selecione um curso</label>
-                    <select id="cursoCliente" required>
-                        <option value="">Selecione um curso</option>
-                    </select>
-                    <label for="periodoCliente">Período do Curso</label>
-                    <select id="periodoCliente" required>
-                        <option value="">Selecione um período</option>
-                        <option value="Matutino">Matutino</option>
-                        <option value="Vespertino">Vespertino</option>
-                        <option value="Noturno">Noturno</option>
-                    </select>
-                    <button type="submit">Cadastrar Cliente e Venda</button>
+                    <input type="text" id="clienteCPF" maxlength="11" required placeholder="CPF do Cliente" title="Digite 11 números" required />
+                    <button type="submit">Cadastrar Cliente</button>
                 </form>
             </section>
 
@@ -82,7 +71,9 @@
                         <option value="">Selecione um cliente</option>
                     </select>
                     <label for="cursoInputVenda">Curso</label>
-                    <input type="text" id="cursoInputVenda" readonly />
+                    <select id="cursoInputVenda" required>
+                        <option value="">Selecione um curso</option>
+                    </select>
                     <label for="periodoVenda">Período do Curso</label>
                     <select id="periodoVenda" required>
                         <option value="">Selecione um período</option>
@@ -101,7 +92,6 @@
                         type="text"
                         id="cpfBusca"
                         maxlength="11"
-                        pattern="\\d{11}"
                         placeholder="Digite o CPF (somente números)"
                         title="Digite 11 números"
                         required

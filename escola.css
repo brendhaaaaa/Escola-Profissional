@@ -8,17 +8,17 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-  }
-  
-  header {
+}
+
+header {
     display: flex;
     align-items: center;
     background: #4caf50;
     padding: 10px 15px;
     color: white;
-  }
-  
-  #menuToggle {
+}
+
+#menuToggle {
     background: transparent;
     border: none;
     font-size: 28px;
@@ -27,18 +27,18 @@ body {
     margin-right: 15px;
     padding: 0;
     line-height: 1;
-  }
-  
-  #menuToggle:focus {
+}
+
+#menuToggle:focus {
     outline: 2px solid #fff;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin: 0;
     font-weight: 700;
-  }
-  
-  .sidebar {
+}
+
+.sidebar {
     position: fixed;
     top: 50px;
     left: 0;
@@ -50,91 +50,91 @@ body {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     z-index: 1000;
-  }
-  
-  .sidebar.show {
+}
+
+.sidebar.show {
     transform: translateX(0);
-  }
-  
-  .sidebar ul {
+}
+
+.sidebar ul {
     list-style: none;
     margin: 0;
     padding: 10px 0;
-  }
-  
-  .sidebar ul li {
+}
+
+.sidebar ul li {
     margin: 0;
-  }
-  
-  .sidebar ul li a {
+}
+
+.sidebar ul li a {
     display: block;
     padding: 12px 20px;
     color: #333;
     text-decoration: none;
     font-weight: 600;
     transition: background 0.3s ease, color 0.3s ease;
-  }
-  
-  .sidebar ul li a:hover,
-  .sidebar ul li a.active {
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
     background: #4caf50;
     color: white;
-  }
-  
-  main {
+}
+
+main {
     margin-left: 0;
     padding: 20px 15px;
     transition: margin-left 0.3s ease;
     min-height: calc(100vh - 50px);
-  }
-  
-  main.shifted {
+}
+
+main.shifted {
     margin-left: 200px;
-  }
-  
-  .tab-content {
+}
+
+.tab-content {
     display: none;
-  }
-  
-  .tab-content.active {
+}
+
+.tab-content.active {
     display: block;
     background: white;
     padding: 15px;
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  }
-  
-  form {
+}
+
+form {
     display: flex;
     flex-direction: column;
-  }
-  
-  form label {
+}
+
+form label {
     margin: 10px 0 5px;
     font-weight: 600;
     color: #555;
-  }
-  
-  form input[type="text"],
-  form input[type="number"],
-  form select {
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
     padding: 10px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
     font-family: Arial, sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  form input[type="text"]:focus,
-  form input[type="number"]:focus,
-  form select:focus {
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus {
     border-color: #4caf50;
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
     outline: none;
-  }
-  
-  form button {
+}
+
+form button {
     margin-top: 15px;
     background: #4caf50;
     border: none;
@@ -145,33 +145,33 @@ body {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  form button:hover {
+}
+
+form button:hover {
     background: #45a049;
-  }
-  
-  form button:focus {
+}
+
+form button:focus {
     outline: 2px solid #333;
-  }
-  
-  .busca-form {
+}
+
+.busca-form {
     display: flex;
     gap: 10px;
     max-width: 380px;
     margin-bottom: 15px;
-  }
-  
-  .busca-form input {
+}
+
+.busca-form input {
     flex-grow: 1;
-  }
-  
-  .busca-form button {
+}
+
+.busca-form button {
     flex-shrink: 0;
     width: 100px;
-  }
-  
-  #resultadoBusca {
+}
+
+#resultadoBusca {
     list-style: none;
     background: #fff;
     padding: 15px 20px;
@@ -179,42 +179,42 @@ body {
     max-height: 250px;
     overflow-y: auto;
     box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-  }
-  
-  #resultadoBusca li {
+}
+
+#resultadoBusca li {
     padding: 10px 8px;
     border-bottom: 1px solid #eee;
     color: #444;
     font-size: 16px;
-  }
-  
-  #resultadoBusca li:last-child {
+}
+
+#resultadoBusca li:last-child {
     border-bottom: none;
-  }
-  
-  .detalhes-curso {
+}
+
+.detalhes-curso {
     margin-top: 12px;
     padding: 15px 18px;
     background: #fafafa;
     border-radius: 6px;
     border: 1px solid #ddd;
     color: #555;
-  }
-  
-  .detalhes-curso h3 {
+}
+
+.detalhes-curso h3 {
     margin-top: 0;
     margin-bottom: 10px;
     color: #333;
-  }
-  
-  input.error,
-  select.error {
+}
+
+input.error,
+select.error {
     border-color: red !important;
     box-shadow: 0 0 6px rgba(255,0,0,0.7) !important;
-  }
-  
-  @media (min-width: 600px) {
+}
+
+@media (min-width: 600px) {
     main.shifted {
-      margin-left: 200px;
+        margin-left: 200px;
     }
-  }  
+}
