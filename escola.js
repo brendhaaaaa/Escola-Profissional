@@ -137,12 +137,20 @@ function registrarVenda(e) {
     }
 
     const cliente = clientes[clienteIndex];
-    const vendaExiste = vendas.some(
+
+    const vendaMesmoCurso = vendas.some(
         (v) => v.cpf === cliente.cpf && v.curso === cursoNome && v.periodo === periodo
     );
-
-    if (vendaExiste) {
+    if (vendaMesmoCurso) {
         alert("Este cliente já comprou este curso para o período informado.");
+        return;
+    }
+
+    const vendaMesmoPeriodo = vendas.some(
+        (v) => v.cpf === cliente.cpf && v.periodo === periodo && v.curso !== cursoNome
+    );
+    if (vendaMesmoPeriodo) {
+        alert("Este cliente já está matriculado em outro curso neste mesmo período.");
         return;
     }
 
@@ -155,6 +163,7 @@ function registrarVenda(e) {
 
     limparFormVenda();
 }
+
 
 function preencherCursoVenda() {
     const clienteIndex = this.value;
